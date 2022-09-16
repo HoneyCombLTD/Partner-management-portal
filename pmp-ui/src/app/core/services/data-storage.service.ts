@@ -27,7 +27,7 @@ export class DataStorageService {
 
   partnerEmailVerify(emailId: string): Observable<any> {
     return this.http.put(
-      this.BASE_URL+ 'v1/partnermanager/partners/email/verify',
+      this.BASE_URL+'v1/partnermanager/partners/email/verify',
       {"id": "string","metadata": {},"request": {"emailId": emailId},"requesttime": "","version": "string"}
     );
   }

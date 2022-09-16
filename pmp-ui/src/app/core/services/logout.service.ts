@@ -22,6 +22,9 @@ export class LogoutService {
   ) {}
 
   logout() {
+    window.location.href = `${this.appService.getConfig().baseUrl}v1/partnermanager/logout/user?redirecturi=`+btoa(window.location.href);
+
+    /*
     this.http
       .delete(`${this.appService.getConfig().baseUrl}v1/partnermanager/logout/user`, {
         observe: 'response'
@@ -40,5 +43,6 @@ export class LogoutService {
           window.alert(error.message);
         }
       );
+    */
   }
 }
