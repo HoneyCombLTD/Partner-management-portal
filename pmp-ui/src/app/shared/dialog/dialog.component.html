@@ -142,7 +142,7 @@
         type="reset"
         mat-button
         class="footer-button"
-        style="color: #FF4081; border: inherit"
+        style="color: var(--color-accent); border: inherit"
       >
         <img
           src="assets/images/refresh.png"
@@ -153,7 +153,7 @@
         mat-button
         class="footer-button"
         (click)="onNoClick()"
-        style="color: #FF4081; background-color: white;"
+        style="color: var(--color-accent); background-color: white;"
       >
         {{ "filters.footerButtons.cancelTxt" | translate }}
       </button> -->
@@ -161,7 +161,8 @@
         type="submit"
         mat-button
         class="footer-button"
-        style="background-color:#FF4081; color:white;"
+        id="applyTxt"
+        style="background-color:var(--color-accent); color:white;"
       >
         {{ "filters.footerButtons.applyTxt" | translate }}
       </button>
@@ -210,7 +211,7 @@
   </div>
   <div mat-dialog-actions class="pop-up-footer">
     <span
-      ><button mat-button [mat-dialog-close]="!confirm">
+      ><button mat-button [mat-dialog-close]="!confirm" id="noBtnTxt">
         {{ input.noBtnTxt }}
       </button></span
     >
@@ -220,6 +221,7 @@
         mat-button
         [mat-dialog-close]="confirm"
         cdkFocusInitial
+        id="yesBtnTxt"
       >
         {{ input.yesBtnTxt }}
       </button></span
@@ -243,7 +245,7 @@
       </button>
     </span>
     <span
-      ><button mat-button [mat-dialog-close]="!confirm">
+      ><button mat-button [mat-dialog-close]="!confirm" id="noBtnTxt">
         {{ input.noBtnTxt }}
       </button></span
     >
@@ -253,6 +255,7 @@
         mat-button
         [mat-dialog-close]="confirm"
         cdkFocusInitial
+        id="confirmpopup"
       >
         {{ input.yesBtnTxt }}
       </button></span
@@ -267,7 +270,13 @@
     height="45px"
     width="45px"
     class="success-img"
-   *ngIf="input.title === ('Success' || 'نجاح' || 'Succès')"   />
+   *ngIf="input.title == ('Success' || 'Success_ara' || 'Success_fra') || ('Success_tam' || 'Success_kan' || 'Success_hin')"   />
+   <img
+    src="assets/images/cross.png"
+    height="45px"
+    width="45px"
+    class="success-img"
+   *ngIf="input.title === ('Error' || 'Error_ara' || 'Error_fra') || ('Error_tam' || 'Error_kan' || 'Error_hin')"   />
   <div class="pop-up-header">
     <b mat-dialog-title>{{ input.title }}</b>
     <div mat-dialog-content>
@@ -276,7 +285,7 @@
   </div>
   <div mat-dialog-actions class="pop-up-footer">
     <span
-      ><button mat-button cdkFocusInitial (click)="dismiss()">
+      ><button mat-button cdkFocusInitial (click)="dismiss()" id="confirmmessagepopup">
         {{ input.btnTxt }}
       </button></span
     >
@@ -301,7 +310,7 @@
   </div>
   <div mat-dialog-actions class="pop-up-footer">
     <span
-      ><button mat-button cdkFocusInitial (click)="dismiss()">
+      ><button mat-button cdkFocusInitial (click)="dismiss()" id="dismiss">
         OK
       </button></span
     >
