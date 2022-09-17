@@ -1,6 +1,6 @@
 <!-- center filter -->
 <div class="filter" *ngIf="input.case === 'filter'">
-  <h2 class="filter-heading">Add Filters</h2>
+  <h2 class="filter-heading">{{ "filters.titleTxt" | translate }}</h2>
   <mat-divider></mat-divider>
   <form [formGroup]="filterGroup" (ngSubmit)="getFilterValuesOnSubmit()">
     <div class="flex-container">
@@ -12,8 +12,9 @@
                 <input
                   type="text"
                   matInput
-                  placeholder="{{ filter.filterlabel }}"
+                  placeholder="{{ filter.filterlabel[primaryLangCode] }}"
                   formControlName="{{ filter.filtername }}"
+                  id="{{filter.filtername}}"
                   (focus)="
                     getControlName(
                       filter,
@@ -28,7 +29,7 @@
                   "
                   [matAutocomplete]="auto"
                 />
-                <mat-autocomplete #auto="matAutocomplete">
+                <mat-autocomplete #auto="matAutocomplete" id="{{filter.filtername}}">
                   <mat-option
                     *ngIf="filterOptions[filter.filtername]?.length === 0"
                   >
@@ -51,8 +52,9 @@
                     <input
                       matInput
                       [matDatepicker]="picker"
-                      placeholder="{{ filter.filterlabel }}"
+                      placeholder="{{ filter.filterlabel[primaryLangCode] }}"
                       formControlName="{{ filter.filtername }}"
+                      id="{{filter.filtername}}"
                       (focus)="
                         getControlName(
                           filter,
@@ -70,8 +72,9 @@
                     <input
                       type="text"
                       matInput
-                      placeholder="{{ filter.filterlabel }}"
+                      placeholder="{{ filter.filterlabel[primaryLangCode] }}"
                       formControlName="{{ filter.filtername }}"
+                      id="{{filter.filtername}}"
                       (focus)="
                         getControlName(
                           filter,
@@ -92,9 +95,10 @@
           </ng-container>
           <ng-container *ngSwitchCase="'true'">
             <mat-form-field>
-              <mat-label>{{ filter.filterlabel }}</mat-label>
+              <mat-label>{{ filter.filterlabel[primaryLangCode] }}</mat-label>
               <mat-select
                 formControlName="{{ filter.filtername }}"
+                id="{{filter.filtername}}"
                 (focus)="
                   getControlName(
                     filter,
@@ -132,28 +136,31 @@
         type="reset"
         mat-button
         class="footer-button"
-        style="color: #FF4081; border: inherit"
+        style="color: var(--color-accent); border: inherit"
+        id="reset"
       >
         <img
           src="assets/images/refresh.png"
           height="15px; width:14px;"
-        />&nbsp;Reset
+        />&nbsp;{{ "filters.footerButtons.resetTxt" | translate }}
       </button>
       <button
         mat-button
         class="footer-button"
         (click)="onNoClick()"
-        style="color: #FF4081; background-color: white;"
+        style="color: var(--color-accent); background-color: white;"
+        id="cancel"
       >
-        Cancel
+        {{ "filters.footerButtons.cancelTxt" | translate }}
       </button>
       <button
         type="submit"
         mat-button
         class="footer-button"
-        style="background-color:#FF4081; color:white;"
+        style="background-color:var(--color-accent); color:white;"
+        id="applyTxt"
       >
-        Apply
+        {{ "filters.footerButtons.applyTxt" | translate }}
       </button>
     </div>
   </form>
@@ -180,6 +187,7 @@
         mat-button
         [mat-dialog-close]="confirm"
         cdkFocusInitial
+        id="confirmpopup"
       >
         {{ input.yesBtnTxt }}
       </button></span
@@ -197,7 +205,7 @@
   </div>
   <div mat-dialog-actions class="pop-up-footer">
     <span
-      ><button mat-button cdkFocusInitial (click)="dismiss()">
+      ><button mat-button cdkFocusInitial (click)="dismiss()" id="confirmmessagepopup">
         {{ input.btnTxt }}
       </button></span
     >
