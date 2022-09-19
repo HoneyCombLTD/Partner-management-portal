@@ -4,5 +4,6 @@
   "baseUrl": "https://pmp.techno-associates.live/",
   "pmpUrl": "/",
   "version": "v1/",
+  "login": "partnermanager/login/",
   "logout": "partnermanager/logout/user"
 }
