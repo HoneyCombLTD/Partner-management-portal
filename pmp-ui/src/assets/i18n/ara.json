@@ -29,8 +29,10 @@
     }
   },
   "dashboard": {
-    "welcomeMessage":"Welcome to Mosip Partner portal ara !",
-    "Logout":"Logout_ara"
+    "welcomeMessage": "THE REPUBLIC OF UGANDA",
+    "detailedMessage1": "NATIONAL IDENTIFICATION & REGISTRATION AUTHORITY",
+    "detailedMessage2": "PARTNER MANAGEMENT PORTAL",
+    "Logout": "Logout"
   },
   "singleView": {
     "errorMessages": [
