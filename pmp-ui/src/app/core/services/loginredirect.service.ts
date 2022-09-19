@@ -11,9 +11,10 @@ export class LoginRedirectService {
   ) {}
 
   redirect(url: string) {
-    // const stateParam = uuid();
-    // this.cookie.set('state', stateParam, undefined, '/');
-    // window.location.href = `${this.appService.getConfig().baseUrl}v1/partnermanager/login/` + btoa(url);
+    const stateParam = uuid();
+    this.cookie.set("state", stateParam, undefined, "/");
+    window.location.href =
+      `${this.appService.getConfig().baseUrl}partnermanager/login/` + btoa(url);
 
     // const stateParam = uuid();
     // this.cookie.set("state", stateParam, undefined, "/");
@@ -31,11 +32,11 @@ export class LoginRedirectService {
     //   "?state=" +
     //   stateParam;
 
-    const stateParam = uuid();
-    this.cookie.set("state", stateParam, undefined, "/");
-    window.location.href =
-      `${this.appService.getConfig().baseUrl}${
-        this.appService.getConfig().login
-      }` + btoa(url);
+    // const stateParam = uuid();
+    // this.cookie.set("state", stateParam, undefined, "/");
+    // window.location.href =
+    //   `${this.appService.getConfig().baseUrl}${
+    //     this.appService.getConfig().login
+    //   }` + btoa(url);
   }
 }
