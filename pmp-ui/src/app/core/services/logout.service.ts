@@ -25,6 +25,6 @@ export class LogoutService {
     window.location.href =
       `${
         this.appService.getConfig().baseUrl
-      }partnermanager/logout/user?redirecturi=` + btoa(window.location.href);
+      }v1/partnermanager/logout/user?redirecturi=` + btoa(window.location.href);
   }
 }
