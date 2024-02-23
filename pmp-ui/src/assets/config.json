@@ -1,7 +1,7 @@
 {
   "primaryLangCode": "eng",
   "secondaryLangCode": "ara",
-  "baseUrl": "https://api-internal.techno-associates.live/",
+  "baseUrl": "https://ugapi-internal.techno-associates.live/",
   "pmpUrl": "/",
   "version": "v1/"
 }
